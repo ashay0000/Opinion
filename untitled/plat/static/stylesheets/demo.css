@@ -1,0 +1,55 @@
+@media (max-width: 767px) {
+  .text-center-xs {
+    text-align: center; } }
+
+@media (min-width: 768px) {
+  .img-responsive-sm {
+    display: block;
+    height: auto;
+    max-width: 100%; } }
+
+@media (max-width: 767px) {
+  .no-mg-t-xs {
+    margin-top: 0 !important; } }
+
+.no-mg-t {
+  margin-top: 0 !important; }
+
+.no-mg-b {
+  margin-bottom: 0 !important; }
+
+.center-block {
+  margin-left: auto;
+  margin-right: auto; }
+
+#stats-chart1, #stats-chart2, #stats-chart3, #stats-chart7, #stats-chart8 {
+  height: 200px; }
+
+.color-settings {
+  width: 180px; }
+  .color-settings .color-title {
+    font-weight: bold;
+    padding-left: 10px; }
+
+.wysihtml5-sandbox {
+  box-sizing: border-box; }
+
+ .btn-menu {
+    color: white;
+    text-shadow: none;
+    vertical-align: middle;
+    padding: 4px 12px;
+    margin-top: 5px;
+    background-color: #3d579d;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); 
+  }
+.btn-menu:hover {
+  background-color: #293b6b;;
+  color:white;}
+.btn-menu:active{
+  background-color: #3d579d;
+  color:white;
+}

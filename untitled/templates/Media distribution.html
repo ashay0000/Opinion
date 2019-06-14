@@ -1,0 +1,170 @@
+{% load static %}
+<html>
+ <head></head>
+ <body class="contrast-fb">
+  <title>舆情平台</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <meta content="text/html;charset=utf-8" http-equiv="content-type" />
+  <meta content="Flat administration template for Twitter Bootstrap. Twitter Bootstrap 3 template with Ruby on Rails support." name="description" />
+  <link href="{% static 'stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/plugins/fullcalendar/fullcalendar.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/plugins/common/bootstrap-wysihtml5.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/bootstrap/bootstrap.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/light-theme.css' %}" media="all" id="color-settings-body-color" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/theme-colors.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'stylesheets/demo.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <!--[if lt IE 9]>
+      <script src="assets/javascripts/ie/html5shiv.js" type="text/javascript"></script>
+      <script src="assets/javascripts/ie/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+  <script src="{% static 'javascripts/ajax.js' %}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/jquery/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/bootstrap/bootstrap.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/jquery/jquery.mobile.custom.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/jquery/jquery-migrate.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/jquery/jquery-ui.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/plugins/modernizr/modernizr.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/plugins/retina/retina.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/theme.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/demo.js'%}" type="text/javascript"></script>
+  <script src="{% static 'javascripts/echarts.js'%}" type="text/javascript"></script>
+
+  <header>
+   <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="index.html"> <img width="81" height="21" class="logo" alt="Flatty" src="{% static 'images/logo.svg'%}" /> <img width="21" height="21" class="logo-xs" alt="Flatty" src="{% static 'images/logo_xs.svg'%}" /> </a>
+    <a class="toggle-nav btn pull-left" href="#" style="margin-right:15px;"> <i class="icon-reorder"></i> </a>
+    <a class="nav-list btn btn-sm btn-menu pull-left" href="#" tag="fb7aa704-4a6e-4892-b565-a93577eedff2"> <i class="icon-github-alt">舆情平台</i> </a>
+   </nav>
+  </header>
+  <div id="wrapper">
+   <div id="main-nav-bg"></div>
+   <nav id="main-nav">
+    <div class="navigation">
+     <ul id="menu_nav" class="nav nav-stacked">
+      <!--菜单开始-->
+      <!--菜单内容为从数据库中动态查询-->
+      <li class="active"> <a href="index.html"> <i class="icon-dashboard"></i> <span>事件定义</span> </a> </li>
+      <li class=""> <a class="dropdown-collapse" href="#"><i class="icon-edit"></i> <span>舆情监控</span> <i class="icon-angle-down angle-down"></i> </a>
+       <ul id="second-nav" class="nav nav-stacked">
+           {% for i in queries %}
+        <li class=''><a class='second' id='{{ i.id }}' href='Opinion monitoring?c={{i.id}}'><i class='icon-caret-right'></i><span id='{{ i.id }}'>{{ i.name }}</span></a></li>
+            {% endfor %}
+       </ul> </li>
+      <li><a class="dropdown-collapse " href="#"> <i class="icon-tint"></i> <span>舆情分析</span> <i class="icon-angle-down angle-down"></i> </a>
+       <ul id="‘abc’" class="nav nav-stacked">
+        <li class=""> <a href="Trend analysis?c={{ c }}"> <i class="icon-caret-right"></i> <span>趋势分析</span> </a> </li>
+        <li class=""> <a href="Media distribution?c={{ c }}"> <i class="icon-caret-right"></i> <span>媒体国家分布</span> </a> </li>
+        <li class=""> <a href="National emotion?c={{ c }}"> <i class="icon-caret-right"></i> <span>国家情感</span> </a> </li>
+        <li class=""> <a href="Event distribution?c={{ c }}"> <i class="icon-caret-right"></i> <span>事件地点分布</span> </a> </li>
+        <li class=""> <a href="Word cloud?c={{ c }}"> <i class="icon-caret-right"></i> <span>词云图</span> </a> </li>
+       </ul> </li>
+      <!--菜单结束-->
+     </ul>
+    </div>
+   </nav>
+
+
+      <section id='content'>
+        <div class='container'>
+          <div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div id=test class='page-header page-header-with-buttons'>
+                <h1 class='pull-left'>
+                  <i class='icon-dashboard'></i>
+                  <!--页面标题-->
+                  <span>基于GDELT的西方媒体舆情分析系统-媒体国家分布</span>
+                </h1>
+                <!--这边的按钮为可选项-->
+                
+              </div>
+            </div>
+          </div>
+          
+	<script>
+    var data = '{{ data }}'.replace(/&quot;/g,'"')
+    console.log(data)
+</script>
+
+			
+			
+			<div id="distribution" style="height: 500px;">
+		<script type="text/javascript">
+        //指定图标的配置和数据
+			function MediaDistribution()
+{
+        option = {
+    title : {
+        text: '顶级域名分布',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 1548
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:eval(data)
+        }
+    ]
+};
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('distribution'));
+
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+	    console.info("图生成函数执行");
+}
+			setTimeout("MediaDistribution()",20);
+			//console.info("图生成函数延时执行");
+    </script>
+				
+			</div>
+
+			
+			
+          <footer id='footer'>
+            <div class='footer-wrapper'>
+              <div class='row'>
+                <div class='col-sm-6 text'>
+                  Copyright © 2018 <a href="http://tton.co/" target="_blank">TTON</a>.TMC
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </div>
+
+	  
+  
+  </body>
+	
+</html>
